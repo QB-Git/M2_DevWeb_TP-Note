@@ -42,24 +42,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-
-
-
-
-    <!-- <mat-list>
-      <mat-list-item *ngFor="let music of personnel" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ music.picture }}" alt="Image de la musique" />
-        <h3 mat-line>{{ music.title }} </h3>
-        <div mat-line>
-          <div><span> {{music.album }} </span> — <span>{{ music.artist }} </span></div>
-          <div>
-            <mat-icon>schedule</mat-icon> Durée: <span>{{music.duration}}</span> —
-            <mat-icon>event</mat-icon> Date: <span>{{music.date | date:'d/MM/y'}}</span>
-          </div>
-        </div>
-      </mat-list-item>
-    </mat-list> -->
   </section>
 </section>
 
