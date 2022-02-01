@@ -2,7 +2,8 @@
   "name": "cours-dev-web-angular",
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "npm run client",
+    "oldstart": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node _server/server.js",
     "ng": "ng",
     "client": "ng serve",

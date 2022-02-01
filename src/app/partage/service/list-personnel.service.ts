@@ -1,19 +1,18 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {BehaviorSubject, Observable} from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { BehaviorSubject, Observable } from "rxjs";
 
-export interface Person {
-  id?: string;
-  nom?: string;
-  prenom?: string;
-  photo?: string | ArrayBuffer | null;
-  age?: string;
-  sexe?: string;
-  telephone?: string;
-  email?: string;
-  titres?: string[];
-  chefId?: string;
+export interface Music {
+  id?: string
+  title?: string
+  description?: string
+  album?: string
+  artist?: string
+  duration?: string
+  date?: Date
+  styles?: string[]
+  picture?: string | ArrayBuffer | null;
 }
 
 @Injectable({
@@ -23,7 +22,7 @@ export class ListPersonnelService {
 
   private employees = new BehaviorSubject<string>('');
 
-  private urlServer:any = {};
+  private urlServer: any = {};
 
   constructor(private readonly http: HttpClient) {
 
@@ -46,35 +45,35 @@ export class ListPersonnelService {
     return this.employees.asObservable();
   }
 
-  updatedEmployeeList(data: string){
+  updatedEmployeeList(data: string) {
     this.employees.next(data);
   }
 
-  fetch(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.urlServer.tousLesEmployes);
+  fetch(): Observable<Music[]> {
+    return this.http.get<Music[]>(this.urlServer.toutesLesMusiques);
   }
 
-  search(name: string): Observable<Person[]> {
-    return this.http.get<Person[]>(this.urlServer.filterByName.replace(':name', name));
+  search(title: string): Observable<Music[]> {
+    return this.http.get<Music[]>(this.urlServer.filterByTitle.replace(':title', title));
   }
 
-  fetchRandom(): Observable<Person> {
-    return this.http.get<Person>(this.urlServer.employeAleatoire);
+  fetchRandom(): Observable<Music> {
+    return this.http.get<Music>(this.urlServer.musiqueAleatoire);
   }
 
   delete(id: string): Observable<any> {
-    return this.http.delete(this.urlServer.unEmploye.replace(':id', id));
+    return this.http.delete(this.urlServer.uneMusique.replace(':id', id));
   }
 
-  create(employe: Person): Observable<Person> {
-    return this.http.post<Person>(this.urlServer.tousLesEmployes, employe);
+  create(music: Music): Observable<Music> {
+    return this.http.post<Music>(this.urlServer.toutesLesMusiques, music);
   }
 
-  fetchOne(id: string): Observable<Person> {
-    return this.http.get<Person>(this.urlServer.unEmploye.replace(':id', id));
+  fetchOne(id: string): Observable<Music> {
+    return this.http.get<Music>(this.urlServer.uneMusique.replace(':id', id));
   }
 
-  update(employe: Person): Observable<Person> {
-    return this.http.put<Person>(this.urlServer.unEmploye.replace(':id', employe.id), employe);
+  update(music: Music): Observable<Music> {
+    return this.http.put<Music>(this.urlServer.uneMusique.replace(':id', music.id), music);
   }
 }

@@ -1,5 +1,5 @@
+import { Music } from './../service/list-personnel.service';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Person} from "../service/list-personnel.service";
 
 @Component({
   selector: 'carte',
@@ -8,22 +8,22 @@ import {Person} from "../service/list-personnel.service";
 })
 export class CarteComponent {
 
-  @Input() employe: Person;
+  @Input() music: Music;
 
-  @Output('personDelete') delete$: EventEmitter<any> = new EventEmitter();
+  @Output('musicDelete') delete$: EventEmitter<any> = new EventEmitter();
 
-  @Output('personUpdate') update$: EventEmitter<any> = new EventEmitter();
+  @Output('musicUpdate') update$: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.employe = {};
+    this.music = {};
   }
 
   delete() {
-    this.delete$.emit(this.employe);
+    this.delete$.emit(this.music);
   }
 
   update() {
-    this.update$.emit(this.employe);
+    this.update$.emit(this.music);
   }
 
 }

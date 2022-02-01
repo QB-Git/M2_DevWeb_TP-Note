@@ -1,15 +1,16 @@
 <mat-card class="carteCustom">
   <mat-card-header>
-    <img *ngIf="employe.photo" mat-card-avatar src="{{employe?.photo}}" alt="Avatar de l'employé"/>
-    <mat-card-title>{{employe?.nom}} {{employe?.prenom}}</mat-card-title>
+    <img *ngIf="music.picture" mat-card-avatar src="{{music?.picture}}" alt="Avatar de la musique"/>
+    <mat-card-title>{{music.title}}</mat-card-title>
     <mat-card-subtitle>
       <mat-card-content>
+        {{music.album}} - {{music.artist}}
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let titre of employe?.titres">
+          <mat-chip color="primary" *ngFor="let style of music?.styles">
             <mat-icon class="small">
-              work_outline
+              music_note
             </mat-icon>
-            {{titre}}
+            {{style}}
           </mat-chip>
         </mat-chip-list>
       </mat-card-content>
@@ -17,22 +18,15 @@
   </mat-card-header>
   <mat-card-content>
     <mat-card-subtitle class="info">
-      <mat-icon>email</mat-icon>
-      <a
-        href="mailto:{{employe?.email}}"
-        title="Send an email to"
-        class="truncate"
-      >{{employe?.email}}</a
-      >
+      <mat-icon>schedule</mat-icon>&nbsp;<span>{{music.duration}}</span>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
-      <mat-icon>phone</mat-icon>
-      <a href="tel:" title="Call">{{employe?.telephone}}</a>
+      <mat-icon>event</mat-icon>&nbsp;<span>{{music.date | date:'d/M/y'}}</span>
     </mat-card-subtitle>
   </mat-card-content>
 
   <mat-card-actions align="end">
-    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', employe.id]">
+    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', music.id]">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-mini-fab aria-label="Supprimer" color="warn" (click)="delete()">

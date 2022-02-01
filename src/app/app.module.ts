@@ -36,6 +36,7 @@ import { LangueBoutonComponent } from './langue-bouton/langue-bouton.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { MatTableModule } from '@angular/material/table'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatTableModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,

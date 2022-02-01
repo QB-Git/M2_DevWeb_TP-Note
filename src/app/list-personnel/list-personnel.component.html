@@ -3,27 +3,63 @@
 <section>
   <span>
     {personnel?.length, plural,
-      =0 {Aucun employé trouvé}
-      =1 {1 Employé trouvé}
-      other {{{ personnel?.length }} Employés trouvés}}
+    =0 {Aucune musique trouvée}
+    =1 {1 Musique trouvée}
+    other {{{ personnel?.length }} Musiques trouvées}}
   </span>
 </section>
 
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <carte [employe]="employe" (personDelete)="delete($event)" (personUpdate)="update($event)" *ngFor="let employe of personnel" ></carte>
+    <carte [music]="music" (musicDelete)="delete($event)" (musicUpdate)="update($event)"
+      *ngFor="let music of personnel"></carte>
   </section>
 
   <section *ngSwitchCase="'list'">
-    <mat-list>
-      <mat-list-item *ngFor="let employe of personnel" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ employe.photo }}" alt="Avatar de l'employé"/>
-        <h3 mat-line>{{ employe.prenom }} {{ employe.nom }} </h3>
-        <p mat-line>
-          <span> {{ employe.email }} </span> — <span>{{ employe.telephone }} </span>
-        </p>
+    <table mat-table [dataSource]="personnel" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Titre </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="album">
+        <th mat-header-cell *matHeaderCellDef> Album </th>
+        <td mat-cell *matCellDef="let element"> {{element.album}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="artist">
+        <th mat-header-cell *matHeaderCellDef> Artiste </th>
+        <td mat-cell *matCellDef="let element"> {{element.artist}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+
+
+    <!-- <mat-list>
+      <mat-list-item *ngFor="let music of personnel" class="mat-whiteframe-2dp mat-card">
+        <img mat-list-avatar src="{{ music.picture }}" alt="Image de la musique" />
+        <h3 mat-line>{{ music.title }} </h3>
+        <div mat-line>
+          <div><span> {{music.album }} </span> — <span>{{ music.artist }} </span></div>
+          <div>
+            <mat-icon>schedule</mat-icon> Durée: <span>{{music.duration}}</span> —
+            <mat-icon>event</mat-icon> Date: <span>{{music.date | date:'d/MM/y'}}</span>
+          </div>
+        </div>
       </mat-list-item>
-    </mat-list>
+    </mat-list> -->
   </section>
 </section>
 

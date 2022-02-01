@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "War",
+    "description": "",
+    "album" : "13 Voices",
+    "artist" : "Sum 41",
+    "duration" : "3:29 min",
+    "date" : "2016-08-25T00:00:1.000",
+    "styles": [
+      "Alternative Rock",
+      "Rock"
+    ],
+    "picture" : "war.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Boulevard of Broken Dream",
+    "description": "",
+    "album" : "American Idiot",
+    "artist" : "Green Day",
+    "duration" : "4:20 min",
+    "date" : "2004-11-29T00:00:1.000",
+    "styles": [
+      "Alternative Rock",
+      "Rock"
+    ],
+    "picture" : "boulevard_of_broken_dreams.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Highway to Hell",
+    "description": "",
+    "album" : "Highway to Hell",
+    "artist" : "AC/DC",
+    "duration" : "4:20 min",
+    "date" : "1979-07-27T00:00:1.000",
+    "styles": [
+      "Rock",
+      "Hard Rock",
+      "Blues Rock"
+    ],
+    "picture" : "boulevard_of_broken_dreams.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Coffee",
+    "description": "",
+    "album" : "Customize",
+    "artist" : "Shi-Fi",
+    "duration" : "2:42 min",
+    "date" : "2018-01-01T00:00:1.000Z",
+    "styles": [
+      "Hip-Hop",
+      "Rap"
+    ],
+    "picture" : "customize.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Moulaga",
+    "description": "",
+    "album" : "Single",
+    "artist" : "Heuss L'enfoiré, Jul",
+    "duration" : "2:57 min",
+    "date" : "2019-06-12T00:00:1.000",
+    "styles": [
+      "Rap"
+    ],
+    "picture" : "customize.jpg"
+  }
+]
