@@ -16,7 +16,7 @@ export class ListPersonnelComponent implements OnInit {
   dialogStatus = 'inactive';
   view = 'card';
   dataSource = this.personnel;
-  displayedColumns = ['title', 'album', 'artist']
+  displayedColumns = ['id', 'title', 'album', 'artist', 'duration']
 
   constructor(
     private readonly listPersonnelService: ListPersonnelService,
