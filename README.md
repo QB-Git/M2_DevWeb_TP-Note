@@ -1,3 +1,7 @@
+Développé par BEAUPUY Quentin
+
+---
+
 # 0. Outils utilisés
 * [Angular Material](https://material.angular.io/)
 * [ngx-echarts](https://www.npmjs.com/package/ngx-echarts)
